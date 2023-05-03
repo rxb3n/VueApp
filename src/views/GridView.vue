@@ -15,8 +15,8 @@
   background: none;
 }
 </style>
-<template #data="{pageNumber}">
 
+<template #data="{pageNumber}" v-if="">
   <div class="container-fluid bg-black">
     <div class="container bg-dark rounded-5 p-2">
       <div class="container bar-menu py-2" style="width: 100%; overflow-x: scroll">
@@ -98,7 +98,6 @@
                   <p class="card-text over-wrap text-white fw-bold fs-5">{{ item.Description }}</p>
                   <p class="text-white fs-6 pt-2 opacity-25">{{ item.Date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ item.Duration }} min</span></p>
                   </router-link>
-                <router-view/>
               </div>
             </div>
             <!-- End Cols -->

@@ -1,19 +1,19 @@
 import { createRouter,  createWebHistory  } from 'vue-router'
 /* import HomeView from '../views/HomeView.vue' */
-import AppVue from '@/App.vue'
+import ArticleView from '../views/ArticleView.vue'
+import Home from '@/Home.vue'
 
 const routes = [
   {
     path: '/',
     name: 'App',
-    component: AppVue
+    component: Home
   },
   {
     path: '/article',
     name: 'ArticleView',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ArticleView.vue')
+    component: ArticleView,
   },
-
   {
     path: '/about',
     name: 'about',
@@ -30,4 +30,6 @@ const router = createRouter({
   routes
 })
 
-export default router; routes
+router.replace('/Home')
+
+export default router;
