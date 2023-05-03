@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "satoshi";
+    src: url(@/fonts/satoshi/satoshi_regular.otf);
+}
+
+@font-face {
+    font-family: "neutro";
+    src: url(@/fonts/neutro/Neutro-Bold.otf);
+}
+
+body {
+    font-family: satoshi;
+    /* Remplacez "NomDeLaPolice" par le nom de votre police */
+    background-color: black;
+}
+.containerr {
+    max-width: 500px;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.img{   
+    position: absolute;
+    width: 60px;
+    margin-bottom: 6rem;
+    margin-left: 10rem;
+}
+
+.marg{
+    margin-top: 5rem;
+}
+
+.over-wrap{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+}
+
