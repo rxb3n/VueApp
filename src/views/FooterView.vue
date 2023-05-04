@@ -1,5 +1,5 @@
 <template>
-    <footer class="container-fluid bg-black">
+    <footer class="container-fluid bg-black" id="footer-color">
       <div class="container py-4 text-white" style="font-size: 14px;">
         <div class="row">
           <div class="col-md-2 mb-3">
@@ -105,6 +105,10 @@ export default{
 .marg{
     margin-left: 12%;
     padding: 0 0 0 12%;
+}
+
+#footer-color{
+  background-color: #121213;
 }
 
 
