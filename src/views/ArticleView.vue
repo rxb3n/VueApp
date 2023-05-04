@@ -199,7 +199,7 @@
         <div class="others">
             <div class="upper-text">
                 <p id="secondary-color">D'autres articles similaires</p>
-                <p id="satoshi-green-text">Voir plus</p>
+                <p> <a class="voir-plus" href="#" id="satoshi-green-text">Voir plus</a></p>
             </div>
 
             <div class="similar-articles">
@@ -293,6 +293,15 @@ export default {
 
 .img-top-left {
     left: 50;
+}
+
+.voir-plus {
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.voir-plus:hover {
+    color: white !important;
 }
 
 .others {
