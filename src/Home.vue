@@ -168,4 +168,9 @@
   .par {
   padding-left: 20rem;
   }
+
+
+  #body {
+    background-color: #121213;
+  }
   </style>

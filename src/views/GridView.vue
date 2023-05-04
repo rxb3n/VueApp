@@ -93,7 +93,7 @@
                   src="../assets/Nicolas.png"
                   alt="Card image cap"
                 />
-                <router-link to="/article" scope="div" class="card-body" style="background-color: #1C1C1F;"> <!-- couleur du card  datas.Category -->
+                <router-link to="/article" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
                   <p class=" fw-bold" style="color: #3ED0A9;">{{ item.Category }}</p>
                   <p class="card-text over-wrap text-white fw-bold fs-5">{{ item.Description }}</p>
                   <p class="text-white fs-6 pt-2 opacity-25">{{ item.Date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ item.Duration }} min</span></p>

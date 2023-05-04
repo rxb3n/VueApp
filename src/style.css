@@ -11,7 +11,11 @@
 body {
     font-family: satoshi;
     /* Remplacez "NomDeLaPolice" par le nom de votre police */
-    background-color: black;
+    background-color: #121213;
+}
+
+a {
+    text-decoration: none;
 }
 .containerr {
     max-width: 500px;
