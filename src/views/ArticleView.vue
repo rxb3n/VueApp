@@ -521,6 +521,7 @@ nav {
     position: sticky;
     top:0;
     z-index: 5;
+    background-color: ;
 }
 
 #nav-wrapper {

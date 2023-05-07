@@ -3,7 +3,7 @@
     <router-view/>
   
   <!-- barre de navigation -->
-  <nav class="navbar navbar-expand-lg bg-black d-none d-sm-block">
+  <nav class="navbar navbar-expand-lg d-none d-sm-block" id="home-nav" style="z-index: 999;">
   <div class="container">
     <img src="./assets/logo.png" width="32" height="32"  alt="logo" srcset="">
     <a class="navbar-brand text-white ps-2" href="#">F.I.F</a>
@@ -12,33 +12,33 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link text-white active" aria-current="page" href="#"><router-link to="/article">Actualités</router-link></a>
+        <li class="nav-item" >
+          <a class="nav-link text-white active" aria-current="page" href="#" ><router-link id="each-nav" to="/article">Actualités</router-link></a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="each-nav">
               Les éléphants
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Eléphants</a></li>
-              <li><a class="dropdown-item" href="#">Eléphants</a></li>
+              <li><a class="dropdown-item" href="#">Éléphants</a></li>
+              <li><a class="dropdown-item" href="#">Éléphants</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Eléphants</a></li>
+              <li><a class="dropdown-item" href="#">Éléphants</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="each-nav">
             Compétitions
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Eléphants</a></li>
-            <li><a class="dropdown-item" href="#">Eléphants</a></li>
+            <li><a class="dropdown-item" href="#">Éléphants</a></li>
+            <li><a class="dropdown-item" href="#">Éléphants</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Eléphants</a></li>
+            <li><a class="dropdown-item" href="#">Éléphants</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white">La F.I.F</a>
+          <a class="nav-link text-white" id="each-nav">La F.I.F</a>
         </li>
       </ul>
       <div class="d-flex" role="search">
@@ -65,7 +65,7 @@
     </div>
     <div class="vstack gap-2 text-center fs-6">
       <i class="fa-solid fa-republican text-secondary"></i>
-      <span style="font-size: 12px;">Eléphants</span>
+      <span style="font-size: 12px;">Éléphants</span>
     </div>
     <div class="vstack gap-2 text-center fs-6">
       <i class="fa-solid fa-trophy text-secondary"></i>
@@ -81,22 +81,22 @@
   <!-- barre de navigation -->
   
   <!-- Couverture FIF -->
-  <div class="container-fluid bg-black py-5" style="background-image: url('./assets/dessin-full.png');">
+  <div class="container-fluid py-5" style="background-image: url('./assets/bg-drawing.svg'); background-color: #121213;">
   <div class="container position-relative">
-    <div class="position-absolute top-0 w-100 d-flex align-items-center justify-content-center opacity-25" style="">
-      <img src="./assets/dessin-gribouilli.png" class="w-100" style="width: 100%; height: 300px; object-fit: contain;" alt="">
+    <div class="position-absolute top-0 w-100 d-flex align-items-center justify-content-center" id="top-bg">
+      <img src="./assets/bg-drawing.svg" class="w-100"  style="width: 100%; height: 300px; object-fit: contain z-index: 1;" alt="">
     </div>
   </div>
-  <div class="my-5 text-white text-center fw-bolder" style="z-index: 999;">
+  <div class="my-5 text-white text-center fw-bolder" id="neutro-h1">
     <img src="./assets/logo-re.png" width="40" height="32" alt="">
-    <h4 class="text-success fw-bold">LA F.I.F</h4>
-    <h3 class="text-uppercase fw-bolder">TOUTE L'actualité du <br />FOOT IVOIRIEN</h3>
+    <h4 id="green-text" style="z-index: 998;">LA F.I.F</h4>
+    <h3 style="z-index: 998 ">TOUTE L'ACTUALITÉ DU <br />FOOT IVOIRIEN</h3>
   </div>
   </div>
   
   <!-- Couverture FIF -->
   <!-- Carousel à la une -->
-  <div class="container-fluid bg-black py-2">
+  <div class="container-fluid py-2" style="background-color: #121213;">
   <CarouselView />
   </div>
   <!-- Carousel à la une -->
@@ -108,9 +108,9 @@
   <!-- GRID -->
   
   <!-- PAGINATION -->
-  <div class="container-fluid bg-black py-3">
+  <div class="container-fluid py-3" style="background-color: #121213 !important;">
   
-  <PaginationView  />
+  <PaginationView />
   </div> 
   <!-- PAGINATION -->
   <!-- PUB -->
@@ -168,9 +168,15 @@
   .par {
   padding-left: 20rem;
   }
+  
+#home-nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  position: sticky;
+  background-color: #171719 !important;
+}
 
-
-  #body {
-    background-color: #121213;
-  }
   </style>

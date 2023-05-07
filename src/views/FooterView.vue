@@ -1,5 +1,5 @@
 <template>
-    <footer class="container-fluid bg-black" id="footer-color">
+    <footer class="container-fluid" id="footer-color" >
       <div class="container py-4 text-white" style="font-size: 14px;">
         <div class="row">
           <div class="col-md-2 mb-3">
@@ -108,7 +108,7 @@ export default{
 }
 
 #footer-color{
-  background-color: #121213;
+  background-color: #171719 !important;
 }
 
 

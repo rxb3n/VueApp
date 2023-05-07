@@ -10,13 +10,29 @@
 
 body {
     font-family: satoshi;
-    /* Remplacez "NomDeLaPolice" par le nom de votre police */
-    background-color: #121213;
+    background-color: #171719;
 }
+
+#green-text {
+    color: #8EF6D3;
+}
+
+#neutro-h1 {
+    font-family: neutro;
+}
+
+#each-nav {
+    font-size: 14px;
+    padding-left: 50px;
+    text-decoration: none;
+    color: #C9CACF;
+}
+
 
 a {
     text-decoration: none;
 }
+
 .containerr {
     max-width: 500px;
     margin: 30px auto;
@@ -24,6 +40,10 @@ a {
     min-height: 300px;
     padding: 30px;
     border-radius: 5px;
+}
+
+footer {
+    background-color: #171719;
 }
 
 .img{   

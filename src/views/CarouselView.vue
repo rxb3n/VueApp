@@ -1,6 +1,6 @@
 <template>
-  <div class="container position-relative ">
-    <div id="carouselExampleIndicators" class="bg-dark p-3 rounded-4 carousel slide">
+  <div class="container position-relative"  >
+    <div id="carouselExampleIndicators" class=" p-3 rounded-4 carousel slide" style="background-color: #1c1c1f;">
       
       <div class="carousel-inner" id="imageDiv">
         <div class="carousel-item active">

@@ -17,7 +17,7 @@
 </style>
 
 <template #data="{pageNumber}" v-if="">
-  <div class="container-fluid bg-black">
+  <div class="container-fluid" style="background-color: #121213;">
     <div class="container bg-dark rounded-5 p-2">
       <div class="container bar-menu py-2" style="width: 100%; overflow-x: scroll">
         <div class="hstack gap-2">
@@ -85,20 +85,18 @@
       <div class="row pt-3">
         <div class="col-md-9">
           <div class="row g-4" id="gridView">
-            <div class="col-md-4"  v-for="(item, index) in paginatedData" :key="index">
-              <div class="card border-dark">
-                <img
+            <div class="col-md-4 card"  v-for="(item, index) in paginatedData" :key="index" style="background-color: #121213;">
+                <router-link to="/article" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
+                                  <img
                   class="card-img-top"
-                  style="height: 200px"
+                  style="height: 500px:"
                   src="../assets/Nicolas.png"
                   alt="Card image cap"
                 />
-                <router-link to="/article" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
                   <p class=" fw-bold" style="color: #3ED0A9;">{{ item.Category }}</p>
                   <p class="card-text over-wrap text-white fw-bold fs-5">{{ item.Description }}</p>
                   <p class="text-white fs-6 pt-2 opacity-25">{{ item.Date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ item.Duration }} min</span></p>
                   </router-link>
-              </div>
             </div>
             <!-- End Cols -->
           </div>
@@ -112,7 +110,7 @@
       </div>
     </div>
     <!-- pagination -->
-    <div class="container-fluid bg-black py-3">
+    <div class="container-fluid py-3">
       <nav aria-label="Page navigation example" class="container bg-dark rounded-5">
         <ul class="pagination d-flex justify-content-end py-2">
           <li class="page-item" v-bind:class="{ disabled: currentPage === 0 }">
@@ -206,7 +204,7 @@ font-family: 'Satoshi', sans-serif;
 .card:hover{
   border: 3px solid #626368 !important;;
   opacity: 12;
-  transition: all 1s;
+  transition: all;
 }
 .pagination .active a {
   background-color: #313139;
