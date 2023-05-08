@@ -102,8 +102,8 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="sticky-top py-5">
-            <img src="../assets/wolf.png" class="w-100" style="height: 600px; object-fit: cover;" alt="">
+          <div class="py-5" style="position: sticky; top: 20px;">
+            <img src="../assets/wolf.png" class="w-100" style="height: 600px; object-fit: cover;">
           </div>
         </div>
         <!-- End Cols -->
@@ -197,11 +197,17 @@ font-family: 'Satoshi', sans-serif;
   font-weight: bold;
 }
 
+.card-body {
+  border: none;
+  border-radius: 14px;
+}
+
+
 .marr {
   margin-left: 6.5rem;
 }
 
-.card:hover{
+.card-body:hover{
   border: 3px solid #626368 !important;;
   opacity: 12;
   transition: all;
