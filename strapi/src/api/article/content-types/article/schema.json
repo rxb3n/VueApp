@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lorem1": {
+      "type": "string"
+    },
+    "lorem2": {
+      "type": "string"
+    },
+    "lorem3": {
+      "type": "string"
+    },
+    "lorem4": {
+      "type": "string"
+    },
+    "lorem5": {
+      "type": "string"
+    },
+    "lorem6": {
+      "type": "string"
+    },
+    "lorem7": {
+      "type": "string"
+    },
+    "lorem8": {
+      "type": "string"
+    },
+    "lorem9": {
+      "type": "string"
+    },
+    "lorem10": {
+      "type": "string"
+    },
+    "lorem11": {
+      "type": "string"
+    },
+    "lorem12": {
+      "type": "string"
+    },
+    "lorem13": {
+      "type": "string"
+    },
+    "lorem14": {
+      "type": "string"
+    }
+  }
+}

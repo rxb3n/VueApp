@@ -133,14 +133,13 @@
 </template>
 
 <script>
-import MOCK_DATA from "../MOCK_DATA.json";
 
 export default {
   name: "GridView",
   components: {},
   data() {
     return {
-      data: MOCK_DATA,
+      data: [],
       limit: 12,
       currentPage: 0,
       pageSize: 12,
@@ -167,6 +166,11 @@ export default {
       return pages;
     }
   },
+
+  created() {
+    this.getArticles().then;
+  },
+  
   /* imp methods */
   methods: {
     prevPage() {
@@ -180,6 +184,29 @@ export default {
     setPage(page, ) {
      // event.preventDefault();
       this.currentPage = page;
+    },
+
+    async getArticles() {
+
+    try {
+      fetch('http://localhost:1337/api/articles?populate=image')
+        .then(response => response.json())
+        .then(data => {
+          const articles = Object.values(data)[0];
+          for ( let i = 0; i < articles.length; i++) {
+            this.articles.push(articles[i])
+          }
+
+          console.log(articles)
+        })
+        .catch(error => {
+          console.error(error);
+        });
+
+    } catch (error) {
+      console.error(error);
+    }
+
     }
   }
 };
