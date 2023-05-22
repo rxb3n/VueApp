@@ -80,12 +80,12 @@
         </div>
       </div>
     </div>
-
     <div class="container rounded-5">
       <div class="row pt-3">
         <div class="col-md-9">
           <div class="row g-4" id="gridView">
-            <div class="col-md-4 card"  v-for="(item, index) in paginatedData" :key="index" style="background-color: #121213;">
+            <!-- <div class="col-md-4 card"  v-for="(item, index) in paginatedData" :key="index" style="background-color: #121213;"> -->
+            <div class="col-md-4 card"  v-for="article in articles" v-bind:key="article.id" style="background-color: #121213;">
                 <router-link to="/article" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
                                   <img
                   class="card-img-top"
@@ -93,9 +93,9 @@
                   src="../assets/Nicolas.png"
                   alt="Card image cap"
                 />
-                  <p class=" fw-bold" style="color: #3ED0A9;">{{ item.Category }}</p>
-                  <p class="card-text over-wrap text-white fw-bold fs-5">{{ item.Description }}</p>
-                  <p class="text-white fs-6 pt-2 opacity-25">{{ item.Date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ item.Duration }} min</span></p>
+                  <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attributes.category }}</p>
+                  <p class="card-text over-wrap text-white fw-bold fs-5">{{ article.attributes.content }}</p>
+                  <p class="text-white fs-6 pt-2 opacity-25">{{ article.attributes.date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ article.attributes.duration }} min</span></p>
                   </router-link>
             </div>
             <!-- End Cols -->
@@ -139,21 +139,21 @@ export default {
   components: {},
   data() {
     return {
-      data: [],
       limit: 12,
       currentPage: 0,
       pageSize: 12,
+      articles:[],
     };
   },
   computed: {
     limitedData() {
-      return this.data.slice(0, this.limit);
+      return this.articles.slice(0, this.limit);
     },
     /* imp */
     paginatedData() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
-      return this.data.slice(start, end);
+      return this.articles.slice(start, end);
     },
     pageCount() {
       return Math.ceil(this.data.length / this.pageSize);

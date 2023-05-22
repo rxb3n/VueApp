@@ -12,47 +12,30 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "lorem1": {
+    "title": {
       "type": "string"
     },
-    "lorem2": {
+    "content": {
+      "type": "richtext"
+    },
+    "category": {
       "type": "string"
     },
-    "lorem3": {
-      "type": "string"
+    "duration": {
+      "type": "integer"
     },
-    "lorem4": {
-      "type": "string"
+    "date": {
+      "type": "date"
     },
-    "lorem5": {
-      "type": "string"
-    },
-    "lorem6": {
-      "type": "string"
-    },
-    "lorem7": {
-      "type": "string"
-    },
-    "lorem8": {
-      "type": "string"
-    },
-    "lorem9": {
-      "type": "string"
-    },
-    "lorem10": {
-      "type": "string"
-    },
-    "lorem11": {
-      "type": "string"
-    },
-    "lorem12": {
-      "type": "string"
-    },
-    "lorem13": {
-      "type": "string"
-    },
-    "lorem14": {
-      "type": "string"
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
