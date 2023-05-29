@@ -136,31 +136,14 @@
   PubView,
   },
   };
-  /* 
-  import $ from "jquery";
-  $(function () {
-  $(window).on("scroll", function () {
-  var initStart = $(window).scrollTop();
-   var width = 136.2/2724;
-   var finalWidth = 0;
-   if (width > finalWidth) {
-    finalWidth = width
-   }else{
-    if(finalStart - initStart == 136.2){
-      finalStart = width * 2724;
-    }
-   } */
-  /* if ($(window).scrollTop() > 136.2) {
-    var finalStart = $(window).scrollTop();
-    console.log($(window).scrollTop())
-    console.log($(window).scrollTop())
-    $(".header").addClass("active");
-  } else {
-    $(".header").removeClass("active");
-  } 
-  });
-  });*/
+
   </script>
+
+<script setup>
+import {useStore} from "@/store/store"
+const fetch = useStore()
+fetch.getArticles().then
+</script>
   
   <style>
   @import "./style.css";

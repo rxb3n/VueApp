@@ -17,10 +17,10 @@
 </style>
 
 <script setup>
-/* import {useStore} from "../store/store.js"
-const fetch = useStore() */
-import { ref, onMounted } from 'vue';
-import { useStore } from '../store/store.js';
+import {useStore} from "../store/store"
+
+const fetch = useStore()
+
 </script>
 
 <template #data="{pageNumber}" v-if="">
@@ -92,12 +92,14 @@ import { useStore } from '../store/store.js';
         <div class="col-md-9">
           <div class="row g-4" id="gridView">
 
-            <div class="col-md-4 card"  v-for="article in articles" v-bind:key="article.id" style="background-color: #121213;">
+            <h1 style="color: white;">{{ fetch.test }}</h1>
+
+            <div class="col-md-4 card"  v-for="article in fetch.articles" v-bind:key="article.id" style="background-color: #121213;">
                  <router-link to="/article/${article.id}" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
                     <img class="card-img-top" style="height: 500px:" src="../assets/Nicolas.png" alt="Card image cap"/>
-                    <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attribute.category }}</p>
-                    <p class="card-text over-wrap text-white fw-bold fs-5">{{ article.attributes.content }}</p>
-                    <p class="text-white fs-6 pt-2 opacity-25">{{ article.attributes.date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ article.attributes.duration }} min</span></p>
+                    <p class=" fw-bold" style="color: #3ED0A9;">{{ fetch.articles.attributes.category }}</p>
+                    <p class="card-text over-wrap text-white fw-bold fs-5">{{ fetch.articles.attributes.category }}</p>
+                    <p class="text-white fs-6 pt-2 opacity-25">{{ fetch.articles.attributes.category }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ fetch.state.articles.attributes.category }} min</span></p>
                   </router-link>
             </div>
             <!-- End Cols -->
@@ -147,21 +149,6 @@ export default {
     };
   },
 
-  setup() {
-    const store = useStore();
-    const articles = ref([]);
-
-    onMounted(async () => {
-      await store.getArticles();
-      articles.value = store.articles;
-    });
-
-    return {
-      articles
-    };
- },
-
-
   computed: {
     limitedData() {
       return this.articles.slice(0, this.limit);
@@ -184,14 +171,10 @@ export default {
     }
   },
 
-  
+  created() {
+    console.log(fetch.state.articles)
+  },
 
-/*   created() {
-    fetch.actions.getArticles().then;
-  }, */
-
-  
-  /* imp methods */
   methods: {
     prevPage() {
       //event.preventDefault();

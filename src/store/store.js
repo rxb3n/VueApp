@@ -3,6 +3,7 @@ import {defineStore} from "pinia"
 export const useStore = defineStore("fetch", {
     state: () => ({
         articles: [],
+        test: "this is a test"
     }),
 
     actions: {
