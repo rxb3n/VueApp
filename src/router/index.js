@@ -1,16 +1,15 @@
 import { createRouter,  createWebHistory  } from 'vue-router'
-/* import HomeView from '../views/HomeView.vue' */
 import ArticleView from '../views/ArticleView.vue'
 import Home from '@/Home.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'App',
-    component: Home
+    name: 'Home',
+    component: Home,
   },
   {
-    path: '/article',
+    path: '/article/:id',
     name: 'ArticleView',
     component: ArticleView,
   },
@@ -30,6 +29,6 @@ const router = createRouter({
   routes
 })
 
-router.replace('/Home')
+router.replace('/')
 
 export default router;

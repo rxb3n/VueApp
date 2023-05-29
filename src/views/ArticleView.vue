@@ -81,7 +81,7 @@
                    
                    <div class="article-head">
                     
-                    <p id="satoshi-green-text">Lorem Ipsum</p>
+                    <p id="satoshi-green-text">lorem</p>
                     <p class="content-title" id="neutro-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, earum.</p>
                     <p id="hashtag">#Lorem #Lorem #Lorem</p>
                     <div class="read-time">
@@ -521,7 +521,6 @@ nav {
     position: sticky;
     top:0;
     z-index: 5;
-    background-color: ;
 }
 
 #nav-wrapper {

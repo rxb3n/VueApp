@@ -1,13 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 import router from './router'
-import store from './store'
 
-/* Font Awesome CSS */
+
+
+
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
-
-/* Bootstrap CSS AND JS*/
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 
-createApp(App).use(store).use(router).mount('#app')
+const app = createApp(App)
+app.use(createPinia())
+createApp(App).use(router).mount('#app')

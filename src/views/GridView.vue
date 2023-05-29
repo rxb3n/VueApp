@@ -16,6 +16,13 @@
 }
 </style>
 
+<script setup>
+/* import {useStore} from "../store/store.js"
+const fetch = useStore() */
+import { ref, onMounted } from 'vue';
+import { useStore } from '../store/store.js';
+</script>
+
 <template #data="{pageNumber}" v-if="">
   <div class="container-fluid" style="background-color: #121213;">
     <div class="container bg-dark rounded-5 p-2">
@@ -84,18 +91,13 @@
       <div class="row pt-3">
         <div class="col-md-9">
           <div class="row g-4" id="gridView">
-            <!-- <div class="col-md-4 card"  v-for="(item, index) in paginatedData" :key="index" style="background-color: #121213;"> -->
+
             <div class="col-md-4 card"  v-for="article in articles" v-bind:key="article.id" style="background-color: #121213;">
-                <router-link to="/article" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
-                                  <img
-                  class="card-img-top"
-                  style="height: 500px:"
-                  src="../assets/Nicolas.png"
-                  alt="Card image cap"
-                />
-                  <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attributes.category }}</p>
-                  <p class="card-text over-wrap text-white fw-bold fs-5">{{ article.attributes.content }}</p>
-                  <p class="text-white fs-6 pt-2 opacity-25">{{ article.attributes.date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ article.attributes.duration }} min</span></p>
+                 <router-link to="/article/${article.id}" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
+                    <img class="card-img-top" style="height: 500px:" src="../assets/Nicolas.png" alt="Card image cap"/>
+                    <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attribute.category }}</p>
+                    <p class="card-text over-wrap text-white fw-bold fs-5">{{ article.attributes.content }}</p>
+                    <p class="text-white fs-6 pt-2 opacity-25">{{ article.attributes.date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ article.attributes.duration }} min</span></p>
                   </router-link>
             </div>
             <!-- End Cols -->
@@ -142,9 +144,24 @@ export default {
       limit: 12,
       currentPage: 0,
       pageSize: 12,
-      articles:[],
     };
   },
+
+  setup() {
+    const store = useStore();
+    const articles = ref([]);
+
+    onMounted(async () => {
+      await store.getArticles();
+      articles.value = store.articles;
+    });
+
+    return {
+      articles
+    };
+ },
+
+
   computed: {
     limitedData() {
       return this.articles.slice(0, this.limit);
@@ -153,7 +170,7 @@ export default {
     paginatedData() {
       const start = this.currentPage * this.pageSize;
       const end = start + this.pageSize;
-      return this.articles.slice(start, end);
+      return fetch.articles.slice(start, end);
     },
     pageCount() {
       return Math.ceil(this.data.length / this.pageSize);
@@ -167,9 +184,12 @@ export default {
     }
   },
 
-  created() {
-    this.getArticles().then;
-  },
+  
+
+/*   created() {
+    fetch.actions.getArticles().then;
+  }, */
+
   
   /* imp methods */
   methods: {
@@ -185,29 +205,6 @@ export default {
      // event.preventDefault();
       this.currentPage = page;
     },
-
-    async getArticles() {
-
-    try {
-      fetch('http://localhost:1337/api/articles?populate=image')
-        .then(response => response.json())
-        .then(data => {
-          const articles = Object.values(data)[0];
-          for ( let i = 0; i < articles.length; i++) {
-            this.articles.push(articles[i])
-          }
-
-          console.log(articles)
-        })
-        .catch(error => {
-          console.error(error);
-        });
-
-    } catch (error) {
-      console.error(error);
-    }
-
-    }
   }
 };
 </script>
