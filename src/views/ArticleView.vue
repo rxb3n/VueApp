@@ -1,3 +1,18 @@
+<script setup>
+import {useArticleStore} from "@/store/store"
+const fetched = useArticleStore();
+fetched.getArticles().then
+
+const articles = fetched.articles
+
+let currentUrl =  window.location.href;
+const splitUrl = currentUrl.split('/');
+let currentId = splitUrl[4];
+currentId = currentId - 1;
+
+</script>
+
+
 
 <template>
     <!-- barre de navigation -->
@@ -81,17 +96,17 @@
                    
                    <div class="article-head">
                     
-                    <p id="satoshi-green-text">lorem</p>
-                    <p class="content-title" id="neutro-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, earum.</p>
-                    <p id="hashtag">#Lorem #Lorem #Lorem</p>
+                    <p id="satoshi-green-text">{{articles[currentId].attributes.category}}</p>
+                    <p class="content-title" id="neutro-white">{{articles[currentId].attributes.title}}</p>
+                    <p id="hashtag">{{articles[currentId].attributes.hashtag}}</p>
                     <div class="read-time">
                         <img src="../assets/clock.png" width="16" height="16">
-                        <p class="time-value">4min</p>
+                        <p class="time-value">{{articles[currentId].attributes.duration}} min</p>
                     </div>
-                    <h4 id="secondary-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, vitae? In placeat a vitae laboriosam consequatur dignissimos odit eaque. Aspernatur!</h4>
+                    <h4 id="secondary-color">{{articles[currentId].attributes.introduction}}</h4>
                    </div>
                    <div class="article-content">
-                    <p class="main-article" id="secondary-color">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat architecto deleniti, voluptatem laudantium fuga ad nulla omnis facilis magni debitis est repellat eos illo quos, dolore excepturi soluta reiciendis labore commodi iste fugiat laboriosam eaque? <br> <br> Expedita vel iusto at explicabo iure quisquam veritatis nostrum architecto molestiae dicta, reprehenderit fuga quo sequi blanditiis sed natus? Assumenda veniam qui recusandae maiores distinctio provident vero corporis quod illum aliquid sequi consequuntur saepe soluta, labore quam similique quae, eaque eos consequatur veritatis. Laborum, aliquid. <br> <br> Quasi porro nobis recusandae explicabo nihil nostrum laudantium quia magni harum laboriosam! Expedita, earum distinctio cumque autem fuga est fugiat laboriosam qui provident accusantium animi praesentium! Animi illum vel eum, porro aliquam voluptate magni quod dolorem iure veritatis laboriosam quasi ad est corporis obcaecati voluptas nostrum esse fugit reprehenderit quis molestias architecto? Voluptate cum hic quam adipisci inventore quasi eaque illum dolorem qui! Enim quos velit dignissimos voluptas sequi odio, tempore doloremque harum similique, blanditiis, incidunt veniam quidem. Dolor numquam sunt labore quibusdam nulla aut, eaque voluptas natus praesentium obcaecati deserunt non ipsam doloremque at itaque perspiciatis dicta facere. Doloremque ratione, rem modi commodi facere, cum reiciendis magni blanditiis tempore, culpa provident. <br> <br> Hic facilis iusto ullam, tenetur quia cum aperiam quos incidunt saepe temporibus neque ad laborum illo illum mollitia animi corrupti quibusdam possimus praesentium! Ipsum explicabo magni aperiam! Dolorum, doloribus? Recusandae, placeat! Dolore ad obcaecati quisquam, quo ullam delectus reiciendis, maxime nesciunt magnam nisi dolores aspernatur excepturi esse possimus! Ipsum in nisi error beatae nam necessitatibus consequuntur quae hic corporis ad, placeat culpa laborum omnis provident laudantium, commodi voluptatibus quisquam? Vero doloribus cumque labore. Soluta ducimus modi non dolor.</p>
+                    <p class="main-article" id="secondary-color">{{articles[currentId].attributes.content}}</p>
                    </div>
 
                    <h3 style="font-family: satoshi; font-size: 16px; color: #626368; margin-bottom: 25px; margin-top: 50px;">Joueurs Mentionnés</h3>
@@ -260,6 +275,7 @@ export default {
     components: {
         FooterView
     },
+
      mounted() {
         window.addEventListener('scroll', this.updateProgressBar);
     },

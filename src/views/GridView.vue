@@ -27,7 +27,7 @@ console.log(articles)
 
 </script>
 
-<template #data="{pageNumber}" v-if="">
+<template #data="{pageNumber}">
   <div class="container-fluid" style="background-color: #121213;">
     <div class="container bg-dark rounded-5 p-2">
       <div class="container bar-menu py-2" style="width: 100%; overflow-x: scroll">
@@ -100,7 +100,7 @@ console.log(articles)
 
             <div class="col-md-4 card"  v-for="article in articles" v-bind:key="article.id" style="background-color: #121213;">
 
-                 <router-link to="`/article/${article.id}`" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
+                 <router-link :to="'/article/' + article.id" class="card-body" style="background-color: #1C1C1F; text-decoration: none;">
                     <img class="card-img-top" style="height: 500px:" src="../assets/Nicolas.png" alt="Card image cap"/>
                     <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attributes.category }}</p>
                     <p class="card-text over-wrap text-white fw-bold fs-5">{{ article.attributes.title }}</p>
@@ -191,28 +191,6 @@ export default {
       this.currentPage = page;
     },
 
-/*     async getArticles() {
-
-    try {
-      fetch('http://localhost:1337/api/articles?populate=image')
-        .then(response => response.json())
-        .then(data => {
-          const articles = Object.values(data)[0];
-          for ( let i = 0; i < articles.length; i++) {
-            this.articles.push(articles[i])
-          }
-
-          console.log(articles)
-        })
-        .catch(error => {
-          console.error(error);
-        });
-
-    } catch (error) {
-      console.error(error);
-    }
-
-    } */
   }
 };
 </script>
