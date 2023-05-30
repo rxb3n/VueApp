@@ -98,7 +98,7 @@ currentId = currentId - 1;
                     
                     <p id="satoshi-green-text">{{articles[currentId].attributes.category}}</p>
                     <p class="content-title" id="neutro-white">{{articles[currentId].attributes.title}}</p>
-                    <p id="hashtag">{{articles[currentId].attributes.hashtag}}</p>
+                    <p id="hashtag">#{{articles[currentId].attributes.hashtag}}</p>
                     <div class="read-time">
                         <img src="../assets/clock.png" width="16" height="16">
                         <p class="time-value">{{articles[currentId].attributes.duration}} min</p>
@@ -204,8 +204,8 @@ currentId = currentId - 1;
         </div>
 
         <div class="author-area">
-            <p style="color:#626368">Le 1 Janvier 0001</p>
-            <p>Ecrit par aaaaaaa</p>
+            <p style="color:#626368">Le {{articles[currentId].attributes.date}}</p>
+            <p>Ecrit par {{articles[currentId].attributes.auteur}}</p>
             <button class="share-btn">Partager</button>
         </div>
 

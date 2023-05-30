@@ -1,5 +1,4 @@
 <template>
-<router-view :key="$route.fullPath"></router-view>
   <!-- barre de navigation -->
   <nav class="navbar navbar-expand-lg d-none d-sm-block" id="home-nav" style="z-index: 999;">
   <div class="container">
