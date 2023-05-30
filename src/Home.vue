@@ -90,6 +90,7 @@
     <h4 id="green-text" style="z-index: 998;">LA F.I.F</h4>
     <h3 style="z-index: 998 ">TOUTE L'ACTUALITÉ DU <br />FOOT IVOIRIEN</h3>
 
+
   </div>
   </div>
   
@@ -139,11 +140,7 @@
 
   </script>
 
-<script setup>
-import {useStore} from "@/store/store"
-const fetch = useStore()
-fetch.getArticles().then
-</script>
+
   
   <style>
   @import "./style.css";

@@ -1,6 +1,6 @@
 import {defineStore} from "pinia"
 
-export const useStore = defineStore("fetch", {
+export const useArticleStore = defineStore("fetched", {
     state: () => ({
         articles: [],
         test: "this is a test"
@@ -9,7 +9,7 @@ export const useStore = defineStore("fetch", {
     actions: {
         async getArticles() {
             try {
-              fetch('http://localhost:1337/api/articles?populate=image')
+              fetch('http://localhost:1337/api/articles')
                 .then(response => response.json())
                 .then(data => {
                   const articles = Object.values(data)[0];
