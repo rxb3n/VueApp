@@ -20,10 +20,9 @@
 import {useArticleStore} from "@/store/store"
 const fetched = useArticleStore();
 fetched.getArticles().then
+
 const articles = fetched.articles;
-const test = fetched.test;
 console.log(articles)
-console.log(test)
 
 
 </script>
@@ -103,9 +102,9 @@ console.log(test)
 
                  <router-link to="`/article/${article.id}`" scope="div" class="card-body" style="background-color: #1C1C1F; text-decoration: none;"> <!-- couleur du card  datas.Category -->
                     <img class="card-img-top" style="height: 500px:" src="../assets/Nicolas.png" alt="Card image cap"/>
-                    <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attributes.title }}</p>
-                    <p class="card-text over-wrap text-white fw-bold fs-5">{{ fetched.test }}</p>
-                    <p class="text-white fs-6 pt-2 opacity-25">{{ fetched.test }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ fetched.test }} min</span></p>
+                    <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attributes.category }}</p>
+                    <p class="card-text over-wrap text-white fw-bold fs-5">{{ article.attributes.title }}</p>
+                    <p class="text-white fs-6 pt-2 opacity-25">{{ article.attributes.date }} <span class="marr"><i class="fa-solid fa-clock"></i> {{ article.attributes.duration }} min</span></p>
                   </router-link>
 <!-- article.id -->
             </div>
@@ -166,7 +165,7 @@ export default {
       return this.articles.slice(start, end);
     },
     pageCount() {
-      return Math.ceil(this.data.length / this.pageSize);
+      return Math.ceil(this.articles.length / this.pageSize);
     },
     pages() {
       const pages = [];

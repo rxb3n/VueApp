@@ -9,7 +9,7 @@ export const useArticleStore = defineStore("fetched", {
     actions: {
         async getArticles() {
             try {
-              fetch('http://localhost:1337/api/articles')
+              fetch('http://localhost:1337/api/articles?populate=*')
                 .then(response => response.json())
                 .then(data => {
                   const articles = Object.values(data)[0];
