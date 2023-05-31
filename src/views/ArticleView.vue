@@ -1,7 +1,6 @@
 <script setup>
 import {useArticleStore} from "@/store/store"
 const fetched = useArticleStore();
-fetched.getArticles().then
 
 const articles = fetched.articles
 
@@ -278,6 +277,7 @@ export default {
 
      mounted() {
         window.addEventListener('scroll', this.updateProgressBar);
+        window.scrollTo(0,0);
     },
     methods: {
         updateProgressBar() {
@@ -286,7 +286,7 @@ export default {
             const clientHeight = document.documentElement.clientHeight;
             const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
             document.querySelector('.progress-bar').style.width = progress + '%';
-        }
+        },
     },
     beforeUnmount() {
         window.removeEventListener('scroll', this.updateProgressBar);

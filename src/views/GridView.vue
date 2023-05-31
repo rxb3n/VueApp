@@ -16,16 +16,6 @@
 }
 </style>
 
-<script setup>
-import {useArticleStore} from "@/store/store"
-const fetched = useArticleStore();
-fetched.getArticles().then
-
-const articles = fetched.articles;
-console.log(articles)
-
-
-</script>
 
 <template #data="{pageNumber}">
   <div class="container-fluid" style="background-color: #121213;">
@@ -100,7 +90,7 @@ console.log(articles)
 
             <div class="col-md-4 card"  v-for="article in articles" v-bind:key="article.id" style="background-color: #121213;">
 
-                 <router-link :to="'/article/' + article.id" class="card-body" style="background-color: #1C1C1F; text-decoration: none;">
+                 <router-link :to="'/article/' + article.id" class="card-body" style="background-color: #1C1C1F; text-decoration: none;" >
                     <img class="card-img-top" style="height: 500px:" src="../assets/Nicolas.png" alt="Card image cap"/>
                     <p class=" fw-bold" style="color: #3ED0A9;">{{ article.attributes.category }}</p>
                     <p class="card-text over-wrap text-white fw-bold fs-5">{{ article.attributes.title }}</p>
@@ -137,23 +127,44 @@ console.log(articles)
       </nav>
       </div>
     <!-- pagination -->
-
+    <PubView />
+  <!-- PUB -->
+  
+  <!-- Footer -->
+  <FooterView />
 
   </div>
 </template>
 
 <script>
+import {useArticleStore} from "@/store/store"
+
 
 export default {
   name: "GridView",
-  components: {},
   data() {
     return {
       limit: 12,
       currentPage: 0,
       pageSize: 12,
+      articles: []
     };
   },
+
+  beforeMount() {
+    const  fetched = useArticleStore();
+
+    if (fetched.articles.length == 0) {
+      fetched.getArticles()
+    }
+
+    let articless = fetched.articles;
+    console.log(articless)
+    this.articles.push(articless)
+    this.articles = this.articles[0]
+
+  },
+
   computed: {
     limitedData() {
       return this.articles.slice(0, this.limit);

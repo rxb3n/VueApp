@@ -26,5 +26,9 @@ export const useArticleStore = defineStore("fetched", {
               console.error(error);
             }
             },
+            
+            emptyStore() {
+              this.articles = [];
+            }
     },
 })
